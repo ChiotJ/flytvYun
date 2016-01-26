@@ -1,0 +1,49 @@
+{
+  "status": 1,
+  "name": "APP列表",
+  "default": 3,
+  "list": [
+    {
+      "id": "1",
+      "name": "歌华云飞视",
+      "online": true,
+      "new": false,
+      "link": ""
+    },
+    {
+      "id": "2",
+      "name": "电视网络图书馆",
+      "online": true,
+      "new": true,
+      "link": "http://172.16.188.26/library4010/i.do"
+    },
+    {
+      "id": "3",
+      "name": "国学诵读",
+      "online": true,
+      "new": false,
+      "link": "http://172.16.188.13/yun/smartcard/tv.html"
+    },
+    {
+      "id": "4",
+      "name": "朝外生活圈",
+      "online": true,
+      "new": true,
+      "link": ""
+    },
+    {
+      "id": "5",
+      "name": "电视街景地图",
+      "online": true,
+      "new": true,
+      "link": "http://172.16.188.26/web/StreetView/pages/index/index.html"
+    },
+    {
+      "id": "6",
+      "name": "亲情一刻",
+      "online": false,
+      "new": false,
+      "link": ""
+    }
+  ]
+}
