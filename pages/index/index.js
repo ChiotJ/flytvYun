@@ -3,11 +3,36 @@
  */
 !function (window, document) {
     var init = function () {
-        appList.init();
+        $("#pageBody").focus();
+        GHSMLib.getUserInfo(function (u) {
+            var chaowai = false;
+            if (u && typeof u.community == "object") {
+                chaowai = true;
+            }
+            appList.init(chaowai);
+        });
+
         window.onload = function () {
             cloud.fly();
         };
+        pageBody.keyListener();
+    };
 
+    var pageBody = {
+        keyListener: function () {
+            GHSMLib.keyCon.keyListener({
+                id: "pageBody",
+                esc: function () {
+                    if (typeof CyberCloud != "undefined") {
+                        CyberCloud.ExitApp();
+                    }
+                    return false;
+                },
+                back: function () {
+                    return false;
+                }
+            });
+        }
     };
 
 
@@ -79,14 +104,17 @@
         dot: doT.template($('#appListDot').text()),
         ul: $("#appList"),
         default: 0,
-        init: function () {
-            this.getDate();
+        init: function (GHLC) {
+            this.getDate(GHLC);
         },
-        getDate: function () {
+        getDate: function (GHLC) {
             var self = this;
             $.getJSON("../../data/json/appList.json", function (json) {
                 if (json.status == 1) {
                     var list = json.list;
+                    if (!GHLC) {
+                        list.splice(3, 1);
+                    }
                     self.data = list;
                     self.ul.html(self.dot(list));
                     if (json.default) {
