@@ -22,7 +22,8 @@
       "name": "国学诵读",
       "online": true,
       "new": false,
-      "link": "http://172.16.188.13/yun/smartcard/tv.html"
+      "link": "CyberCloudEnter",
+      "CyberCloudId": 77
     },
     {
       "id": "4",

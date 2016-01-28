@@ -112,11 +112,13 @@
             $.getJSON("../../data/json/appList.json", function (json) {
                 if (json.status == 1) {
                     var list = json.list;
-                    if (!GHLC) {
+                    if (!GHLC && GHSMLib.cardId != "1371053255") {
                         list.splice(3, 1);
                     }
                     self.data = list;
                     self.ul.html(self.dot(list));
+                    $("#appList").css("opacity", "1");
+                    $(".loding").css("opacity", "0");
                     if (json.default) {
                         self.default = json.default;
                     }
@@ -136,7 +138,18 @@
                     var idx = $(item).index();
                     var link = self.data[idx].link;
                     if (link) {
-                        window.location.href = link;
+                        $("#pageBody").focus();
+                        $("#appList").css("opacity", "0");
+                        $(".loding").css("opacity", "1");
+                        setTimeout(function () {
+                            if (link == "CyberCloudEnter") {
+
+                                CyberCloud.StartStreamWeb(self.data[idx].CyberCloudId, "", "")
+
+                            } else {
+                                window.location.href = link;
+                            }
+                        }, 1100);
                     }
                 },
                 esc: function () {
@@ -146,6 +159,7 @@
                     return false;
                 },
                 back: function () {
+                    window.history.go(-1)
                     return false;
                 }
             });
