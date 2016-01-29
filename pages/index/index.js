@@ -199,10 +199,6 @@
                 back: function () {
                     window.history.go(-1);
                     return false;
-                },
-                n1:function(){
-                    var a = typeof CyberCloud != "undefined" ? CyberCloud.GetParam("UserCode").ParamValue:"1";
-                    $(".unOnline").html(a);
                 }
             });
         }
