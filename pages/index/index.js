@@ -112,8 +112,13 @@
             $.getJSON("../../data/json/appList.json", function (json) {
                 if (json.status == 1) {
                     var list = json.list;
-                    if (!GHLC && GHSMLib.cardId != "1371053255") {
-                        list.splice(3, 1);
+                    for (var key in list) {
+                        if (!list.hasOwnProperty(key))
+                            continue;
+                        var id = list[key].id;
+                        if (id == 4 && !GHLC && GHSMLib.cardId != "1371053255") {
+                            list.splice(key, 1);
+                        }
                     }
                     self.data = list;
                     self.ul.html(self.dot(list));
@@ -137,7 +142,8 @@
                 enter: function (item) {
                     var idx = $(item).index();
                     var link = self.data[idx].link;
-                    if (link) {
+                    var online = self.data[idx].online;
+                    if (link && online) {
                         $("#pageBody").focus();
                         $("#appList").css("opacity", "0");
                         $(".loding").css("opacity", "1");

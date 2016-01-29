@@ -6,7 +6,7 @@
     {
       "id": "1",
       "name": "歌华云飞视",
-      "online": true,
+      "online": false,
       "new": false,
       "link": ""
     },
@@ -28,7 +28,7 @@
     {
       "id": "4",
       "name": "朝外生活圈",
-      "online": true,
+      "online": false,
       "new": true,
       "link": ""
     },
