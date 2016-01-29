@@ -6,9 +6,10 @@
     {
       "id": "1",
       "name": "歌华云飞视",
-      "online": false,
+      "online": true,
       "new": false,
-      "link": ""
+      "link": "LocalWeb",
+      "LocalUrl": "http://172.16.88.203/flytvpage/flyView.ftl"
     },
     {
       "id": "2",
@@ -22,15 +23,15 @@
       "name": "国学诵读",
       "online": true,
       "new": false,
-      "link": "CyberCloudEnter",
+      "link": "CyberCloudWeb",
       "CyberCloudId": 77
     },
     {
       "id": "4",
       "name": "朝外生活圈",
-      "online": false,
+      "online": true,
       "new": true,
-      "link": "",
+      "link": "http://172.16.188.26/web/LifeCircle/chaowai/pages/index/index.html",
       "area": [
         "11e6801f-9a5d-4a6b-be6c-e6bc7820cc57"
       ],

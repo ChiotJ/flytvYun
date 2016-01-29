@@ -173,16 +173,15 @@
                     var idx = $(item).index();
                     var link = self.data[idx].link;
                     var online = self.data[idx].online;
-                    if (idx == 0) {
-                        CyberCloud.StartLocalWeb("http://10.191.255.161/index.html", "");
-                    }
                     if (link && online) {
                         $("#pageBody").focus();
                         $("#appList").css("opacity", "0");
                         $(".loding").css("opacity", "1");
                         setTimeout(function () {
-                            if (link == "CyberCloudEnter") {
+                            if (link == "CyberCloudWeb") {
                                 CyberCloud.StartStreamWeb(self.data[idx].CyberCloudId, "", "")
+                            } else if (link == "LocalWeb") {
+                                CyberCloud.StartLocalWeb(self.data[idx].LocalUrl, "");
                             } else {
                                 window.location.href = link;
                             }
