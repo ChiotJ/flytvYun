@@ -173,6 +173,7 @@
                     var idx = $(item).index();
                     var link = self.data[idx].link;
                     var online = self.data[idx].online;
+
                     if (link && online) {
                         $("#pageBody").focus();
                         $("#appList").css("opacity", "0");
@@ -181,7 +182,7 @@
                             if (link == "CyberCloudWeb") {
                                 CyberCloud.StartStreamWeb(self.data[idx].CyberCloudId, "", "")
                             } else if (link == "LocalWeb") {
-                                CyberCloud.StartLocalWeb(self.data[idx].LocalUrl, "");
+                                CyberCloud.StartLocalWeb(self.data[idx].LocalUrl + "?back=" + encodeURIComponent("http://172.16.188.26/web/flytvYun/pages/index/index.html"), "back");
                             } else {
                                 window.location.href = link;
                             }
@@ -196,8 +197,12 @@
                     return false;
                 },
                 back: function () {
-                    window.history.go(-1)
+                    window.history.go(-1);
                     return false;
+                },
+                n1:function(){
+                    var a = typeof CyberCloud != "undefined" ? CyberCloud.GetParam("UserCode").ParamValue:"1";
+                    $(".unOnline").html(a);
                 }
             });
         }

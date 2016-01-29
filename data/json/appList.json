@@ -29,7 +29,7 @@
     {
       "id": "4",
       "name": "朝外生活圈",
-      "online": true,
+      "online": false,
       "new": true,
       "link": "http://172.16.188.26/web/LifeCircle/chaowai/pages/index/index.html",
       "area": [
