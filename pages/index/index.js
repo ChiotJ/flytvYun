@@ -4,12 +4,8 @@
 !function (window, document) {
     var init = function () {
         $("#pageBody").focus();
-        GHSMLib.getUserInfo(function (u) {
-            var chaowai = false;
-            if (u && typeof u.community == "object") {
-                chaowai = true;
-            }
-            appList.init(chaowai);
+        GHSMLib.getUserInfo(function (user) {
+            appList.init(user);
         });
 
         window.onload = function () {
@@ -104,34 +100,68 @@
         dot: doT.template($('#appListDot').text()),
         ul: $("#appList"),
         default: 0,
-        init: function (GHLC) {
-            this.getDate(GHLC);
+        init: function (user) {
+            this.getDate(user);
         },
-        getDate: function (GHLC) {
+        getDate: function (user) {
             var self = this;
             $.getJSON("../../data/json/appList.json", function (json) {
                 if (json.status == 1) {
+                    if (json.default) {
+                        self.default = json.default;
+                    }
                     var list = json.list;
+                    var idx = 0;
                     for (var key in list) {
-                        if (!list.hasOwnProperty(key))
-                            continue;
-                        var id = list[key].id;
-                        if (id == 4 && !GHLC && GHSMLib.cardId != "1371053255") {
-                            list.splice(key, 1);
+                        var area = list[key].area;
+                        if (area) {
+                            var show = false;
+                            if (user.street) {
+                                for (var a in area) {
+                                    if (user.street == area[a]) {
+                                        show = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!show && GHSMLib.cardId != "1371053255") {
+                                if (self.default && list[key].next_default)
+                                    self.default = list[key].next_default;
+                                list.splice(key, 1);
+                            }
                         }
                     }
                     self.data = list;
                     self.ul.html(self.dot(list));
+                    if (self.default) {
+                        idx = self.getDefault(list)
+                    }
                     $("#appList").css("opacity", "1");
                     $(".loding").css("opacity", "0");
-                    if (json.default) {
-                        self.default = json.default;
-                    }
 
-                    $(self.ul.find("li")[self.default]).focus();
+
+                    $(self.ul.find("li")[idx]).focus();
                     self.keyListener();
                 }
             })
+        },
+        getDefault: function (list) {
+            var self = this;
+            var idx = 0;
+            for (var key in list) {
+                var id = list[key].id;
+                if (id == self.default) {
+                    idx = key;
+                    if (!list[key].online) {
+                        if (list[key].next_default) {
+                            self.default = list[key].next_default;
+                            idx = self.getDefault(list);
+                        }
+                    }
+                    break;
+                }
+            }
+            return idx;
         },
         keyListener: function () {
             var self = this;
@@ -143,19 +173,21 @@
                     var idx = $(item).index();
                     var link = self.data[idx].link;
                     var online = self.data[idx].online;
+                    if (idx == 0) {
+                        CyberCloud.StartLocalWeb("http://10.191.255.161/index.html", "");
+                    }
                     if (link && online) {
                         $("#pageBody").focus();
                         $("#appList").css("opacity", "0");
                         $(".loding").css("opacity", "1");
                         setTimeout(function () {
                             if (link == "CyberCloudEnter") {
-
                                 CyberCloud.StartStreamWeb(self.data[idx].CyberCloudId, "", "")
-
                             } else {
                                 window.location.href = link;
                             }
                         }, 1100);
+
                     }
                 },
                 esc: function () {

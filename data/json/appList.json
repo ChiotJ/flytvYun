@@ -1,7 +1,7 @@
 {
   "status": 1,
   "name": "APP列表",
-  "default": 3,
+  "default": 4,
   "list": [
     {
       "id": "1",
@@ -30,7 +30,11 @@
       "name": "朝外生活圈",
       "online": false,
       "new": true,
-      "link": ""
+      "link": "",
+      "area": [
+        "11e6801f-9a5d-4a6b-be6c-e6bc7820cc57"
+      ],
+      "next_default": 5
     },
     {
       "id": "5",
