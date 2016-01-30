@@ -13,6 +13,7 @@
         if (typeof CyberCloud !== "undefined") {
             document.getElementById("ca").innerHTML = CyberCloud.GetParam("CardID").ParamValue;
             document.getElementById("stb").innerHTML = CyberCloud.GetParam("UserCode").ParamValue;
+            document.getElementById("ip").innerHTML = 1+CyberCloud.GetParam("TerminalIP").ParamValue;
         }
         document.onkeydown = function (e) {
             document.getElementById("key").innerHTML = e.keyCode;
