@@ -197,7 +197,17 @@
                     return false;
                 },
                 back: function () {
-                    window.history.go(-1);
+                    if (typeof CyberCloud != "undefined") {
+                        $("#appList").css("opacity", "0");
+                        $(".loding").css("opacity", "1");
+                        setTimeout(function () {
+                            //歌华主页-正式
+                            //CyberCloud.StartStreamWeb("43", "", "");
+                            //歌华主页-预发布
+                            //CyberCloud.StartStreamWeb("62", "", "");
+                            CyberCloud.ExitApp();
+                        }, 1100);
+                    }
                     return false;
                 }
             });

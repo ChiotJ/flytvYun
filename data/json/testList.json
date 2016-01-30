@@ -1,0 +1,44 @@
+{
+  "status": 1,
+  "name": "测试APP列表",
+  "list": [
+    {
+      "name": "歌华云应用",
+      "link": {
+        "test": "http://10.191.255.161/flytvYun/pages/index/index.html",
+        "publish": "http://172.16.188.26/web/flytvYun/pages/index/index.html"
+      }
+    },
+    {
+      "name": "电视网络图书馆",
+      "link": {
+        "publish": "http://172.16.188.26/library4010/i.do"
+      }
+    },
+    {
+      "name": "朝外生活圈",
+      "link": {
+        "test": "http://172.16.200.18:82/life_circle/chaowai/pages/index/index.html",
+        "publish": "http://172.16.188.26/web/LifeCircle/chaowai/pages/index/index.html"
+      }
+    },
+    {
+      "name": "电视街景地图",
+      "link": {
+        "publish": "http://172.16.188.26/web/StreetView/pages/index/index.html"
+      }
+    },
+    {
+      "name": "歌华生活圈",
+      "link": {
+        "test": "http://172.16.200.18:82/map_1.4/pages/index/index.html"
+      }
+    },
+    {
+      "name": "亲情一刻",
+      "link": {
+        "test": "http://172.16.200.18:82/family/index.html"
+      }
+    }
+  ]
+}
