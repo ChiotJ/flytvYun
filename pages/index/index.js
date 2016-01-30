@@ -209,9 +209,6 @@
                         }, 1100);
                     }
                     return false;
-                },
-                n7:function(){
-                   window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
                 }
             });
         }
