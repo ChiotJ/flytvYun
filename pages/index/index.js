@@ -100,6 +100,7 @@
         dot: doT.template($('#appListDot').text()),
         ul: $("#appList"),
         default: 0,
+        keyDown: "",
         init: function (user) {
             this.getDate(user);
         },
@@ -211,6 +212,23 @@
                     return false;
                 }
             });
+
+            document.onkeydown = function (e) {
+                if (e && e.keyCode) {
+                    if (self.keyDown.length > 20) {
+                        self.keyDown = "";
+                    }
+                    self.keyDown += e.keyCode;
+                    console.log(self.keyDown)
+                    if (self.keyDown.indexOf("555354555657") != "-1") {
+                        window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
+                    }
+                }
+
+                if (e && e.keyCode == 27) {
+                    return false;
+                }
+            }
         }
     };
 

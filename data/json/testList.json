@@ -10,9 +10,10 @@
       }
     },
     {
-      "name": "电视网络图书馆",
+      "name": "电视街景地图",
       "link": {
-        "publish": "http://172.16.188.26/library4010/i.do"
+        "test": "http://172.16.200.18:82/StreetView/pages/index/index.html",
+        "publish": "http://172.16.188.26/web/StreetView/pages/index/index.html"
       }
     },
     {
@@ -23,9 +24,9 @@
       }
     },
     {
-      "name": "电视街景地图",
+      "name": "电视网络图书馆",
       "link": {
-        "publish": "http://172.16.188.26/web/StreetView/pages/index/index.html"
+        "publish": "http://172.16.188.26/library4010/i.do"
       }
     },
     {
