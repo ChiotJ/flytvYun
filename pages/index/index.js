@@ -219,7 +219,6 @@
                         self.keyDown = "";
                     }
                     self.keyDown += e.keyCode;
-                    console.log(self.keyDown)
                     if (self.keyDown.indexOf("555354555657") != "-1") {
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
                     }
