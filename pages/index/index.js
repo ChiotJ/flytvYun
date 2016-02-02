@@ -223,7 +223,6 @@
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
                     }
                 }
-
                 if (e && e.keyCode == 27) {
                     return false;
                 }
