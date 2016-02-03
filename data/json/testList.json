@@ -40,6 +40,12 @@
       "link": {
         "test": "http://172.16.200.18:82/family/index.html"
       }
+    },
+    {
+      "name": "统计",
+      "link": {
+        "test": "http://172.16.188.26/web/flytvYun/pages/statistical/index.html"
+      }
     }
   ]
 }
