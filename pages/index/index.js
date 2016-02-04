@@ -183,6 +183,10 @@
                             if (link == "CyberCloudWeb") {
                                 CyberCloud.StartStreamWeb(self.data[idx].CyberCloudId, "", "")
                             } else if (link == "LocalWeb") {
+                                if (self.data[idx].name == "歌华云飞视") {
+                                    var timestamp = new Date().getTime();
+                                    $.getJSON('http://172.16.188.26/web/userBehavior/pv.json?appName=Flytv&cardId=' + GHSMLib.cardId + "&timestamp=" + timestamp);
+                                }
                                 CyberCloud.StartLocalWeb(self.data[idx].LocalUrl + "?back=" + encodeURIComponent("http://172.16.188.26/web/flytvYun/pages/index/index.html"), "back");
                             } else {
                                 window.location.href = link;
@@ -221,7 +225,10 @@
                     self.keyDown += e.keyCode;
                     if (self.keyDown.indexOf("555354555657") != "-1") {
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
+                    }else if(self.keyDown.indexOf("4953575451") != "-1"){
+                        window.location.href = "http://172.16.188.26/web/flytvYun/pages/statistical/index.html";
                     }
+
                 }
                 if (e && e.keyCode == 27) {
                     return false;
