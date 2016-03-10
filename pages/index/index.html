@@ -21,6 +21,9 @@
     {{~it:value:index}}
     <li tabindex="-1">
         <img src="../../data/images/appList/{{= value.id || 'error'}}.png"/>
+        {{? value.alpha }}
+        <img class="new" src="images/alpha.png">
+        {{??}}
         {{? !value.online }}
         <div class="unOnline">
             <div class="unOnlineText">即将上线</div>
@@ -28,6 +31,7 @@
         {{??}}
         {{? value.new }}
         <img class="new" src="images/new.png">
+        {{?}}
         {{?}}
         {{?}}
     </li>

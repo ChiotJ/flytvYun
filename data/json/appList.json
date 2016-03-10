@@ -47,9 +47,10 @@
     {
       "id": "6",
       "name": "亲情一刻",
-      "online": false,
+      "online": true,
       "new": false,
-      "link": ""
+      "link": "http://172.16.188.26/web/family/pages/index/index.html",
+      "alpha": true
     }
   ]
 }
