@@ -1,0 +1,219 @@
+* {
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 1280px;
+    height: 720px;
+    font-family: Microsoft YaHei;
+    background: url("images/bg.png") 0 no-repeat;
+}
+
+.pageBody {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    position: relative;
+}
+
+ul, li {
+    list-style: none;
+}
+
+/*云彩*/
+#yun_1 {
+    position: absolute;
+    left: 40px;
+    top: 150px;
+    transition: all 4s linear;
+}
+
+#yun_2 {
+    position: absolute;
+    left: 285px;
+    top: 70px;
+    transition: all 30s linear;
+}
+
+#yun_3 {
+    position: absolute;
+    right: 270px;
+    top: 40px;
+    transition: all 20s linear;
+}
+
+#yun_4 {
+    position: absolute;
+    right: 40px;
+    top: 195px;
+    transition: all 4s linear;
+}
+
+/*应用列表*/
+.appList {
+    width: 1017px;
+    height: 500px;
+    position: absolute;
+    top: 102px;
+    left: 131px;
+    float: left;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.appList li {
+    float: left;
+    width: 298px;
+    height: 238px;
+    margin: 10px 20px;
+    position: relative;
+}
+
+.appList li img:first-child {
+    width: 291px;
+    height: 230px;
+    border: 4px solid transparent;
+    border-radius: 30px;
+    transition: all 0.5s;
+}
+
+.appList li img:nth-child(2) {
+    position: absolute;
+    top: 2px;
+    right: 25px;
+    transition: all 0.5s;
+}
+
+.appList li .unOnline {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 291px;
+    height: 230px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    transition: all 0.5s;
+}
+
+.appList li .unOnline .unOnlineText {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    color: #FFFFFF;
+    transition: all 0.5s;
+}
+
+.appList li:focus img:first-child {
+    width: 331px;
+    height: 260px;
+    margin-top: -15px;
+    margin-left: -20px;
+    border: 4px solid #EB6100;
+}
+
+.appList li:focus img:nth-child(2) {
+    margin-top: -15px;
+    margin-left: -20px;
+}
+
+.appList li:focus .unOnline {
+    margin-top: -15px;
+    margin-left: -20px;
+    width: 331px;
+    height: 260px;
+}
+
+
+
+/*加载*/
+.loding{
+    width:54px;
+    height:25px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-27px;
+    margin-top:-10px;
+    transition: all 500ms;
+}
+
+#preloader5{
+    position:relative;
+    width:30px;
+    height:30px;
+    background:#3498db;
+    border-radius:50px;
+    -webkit-animation: preloader_5 1.5s infinite linear;
+    -moz-animation: preloader_5 1.5s infinite linear;
+    -ms-animation: preloader_5 1.5s infinite linear;
+    animation: preloader_5 1.5s infinite linear;
+}
+#preloader5:after{
+    position:absolute;
+    width:50px;
+    height:50px;
+    border-top:10px solid #9b59b6;
+    border-bottom:10px solid #9b59b6;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-radius:50px;
+    content:'';
+    top:-20px;
+    left:-20px;
+    -webkit-animation: preloader_5_after 1.5s infinite linear;
+    -moz-animation: preloader_5_after 1.5s infinite linear;
+    -ms-animation: preloader_5_after 1.5s infinite linear;
+    animation: preloader_5_after 1.5s infinite linear;
+}
+
+
+@-webkit-keyframes preloader_5 {
+    0% {-webkit-transform: rotate(0deg);}
+    50% {-webkit-transform: rotate(180deg);background:#2ecc71;}
+    100% {-webkit-transform: rotate(360deg);}
+}
+@-webkit-keyframes preloader_5_after {
+    0% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+    50% {border-top:10px solid #3498db;border-bottom:10px solid #3498db;}
+    100% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+}
+
+
+@-moz-keyframes preloader_5 {
+    0% {-moz-transform: rotate(0deg);}
+    50% {-moz-transform: rotate(180deg);background:#2ecc71;}
+    100% {-moz-transform: rotate(360deg);}
+}
+@-moz-keyframes preloader_5_after {
+    0% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+    50% {border-top:10px solid #3498db;border-bottom:10px solid #3498db;}
+    100% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+}
+
+@-ms-keyframes preloader_5 {
+    0% {-ms-transform: rotate(0deg);}
+    50% {-ms-transform: rotate(180deg);background:#2ecc71;}
+    100% {-ms-transform: rotate(360deg);}
+}
+@-ms-keyframes preloader_5_after {
+    0% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+    50% {border-top:10px solid #3498db;border-bottom:10px solid #3498db;}
+    100% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+}
+
+@keyframes preloader_5 {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);background:#2ecc71;}
+    100% {transform: rotate(360deg);}
+}
+@keyframes preloader_5_after {
+    0% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+    50% {border-top:10px solid #3498db;border-bottom:10px solid #3498db;}
+    100% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
+}
