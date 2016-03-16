@@ -12,6 +12,7 @@
             cloud.fly();
         };
         pageBody.keyListener();
+        sessionStorage.setItem("flytvYunFrom", window.location.href);
     };
 
     var pageBody = {
@@ -225,7 +226,7 @@
                     self.keyDown += e.keyCode;
                     if (self.keyDown.indexOf("555354555657") != "-1") {
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
-                    }else if(self.keyDown.indexOf("4953575451") != "-1"){
+                    } else if (self.keyDown.indexOf("4953575451") != "-1") {
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/statistical/index.html";
                     }
 
