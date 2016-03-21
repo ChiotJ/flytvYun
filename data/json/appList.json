@@ -50,7 +50,8 @@
       "online": true,
       "new": false,
       "link": "http://172.16.188.26/web/family/pages/index/index.html",
-      "alpha": true
+      "alpha": false,
+      "beta": true
     }
   ]
 }
