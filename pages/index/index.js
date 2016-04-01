@@ -228,8 +228,9 @@
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
                     } else if (self.keyDown.indexOf("4953575451") != "-1") {
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/statistical/index.html";
+                    } else if (self.keyDown.indexOf("495051505152") != "-1") {
+                        window.location.href = "http://172.16.200.18:82/SafeDaXing/pages/index/index.html";
                     }
-
                 }
                 if (e && e.keyCode == 27) {
                     return false;

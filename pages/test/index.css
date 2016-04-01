@@ -43,6 +43,21 @@ ul, li {
 
 }
 
+.info2 {
+    width: 1000px;
+    margin: 0 50px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.info2 li {
+    float: left;
+    width: 1000px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+
 .appList .title {
     text-align: center;
     width: 1000px;

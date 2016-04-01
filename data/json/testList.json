@@ -30,15 +30,22 @@
       }
     },
     {
-      "name": "歌华生活圈",
+      "name": "亲情一刻",
       "link": {
-        "test": "http://172.16.200.18:82/map_1.4/pages/index/index.html"
+        "test": "http://172.16.200.18:82/family/index.html",
+        "publish": "http://172.16.188.26/web/family/pages/index/index.html"
       }
     },
     {
-      "name": "亲情一刻",
+      "name": "平安大兴",
       "link": {
-        "test": "http://172.16.200.18:82/family/index.html"
+        "test": "http://172.16.200.18:82/SafeDaXing/pages/index/index.html"
+      }
+    },
+    {
+      "name": "歌华生活圈",
+      "link": {
+        "test": "http://172.16.200.18:82/map_1.4/pages/index/index.html"
       }
     },
     {
@@ -50,7 +57,7 @@
     {
       "name": "视频通话",
       "link": {
-        "test": "http://10.191.255.121/RTCApp/view?u=8055b61df78a44efb950c31b038bd0ed"
+        "test": "http://10.191.255.121/RTCApp/view?u=c9643dbc91a643899a7e6b33d861f9c9"
       }
     }
   ]
