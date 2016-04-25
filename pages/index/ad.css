@@ -1,0 +1,32 @@
+#ad-BootPage {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background: #FFFFFF;
+    opacity: 1;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+#ad-BootPage-fullImg {
+    width: 1280px;
+    height: 720px;
+}
+
+#ad-BootPage-timepiece {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 34px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #EB6100;
+    font-family: "Microsoft YaHei";
+    border-radius: 50px;
+}

@@ -188,7 +188,7 @@
                                     var timestamp = new Date().getTime();
                                     $.getJSON('http://172.16.188.26/web/userBehavior/pv.json?appName=Flytv&cardId=' + GHSMLib.cardId + "&timestamp=" + timestamp);
                                 }
-                                CyberCloud.StartLocalWeb(self.data[idx].LocalUrl + "?back=" + encodeURIComponent("http://172.16.188.26/web/flytvYun/pages/index/index.html"), "back");
+                                CyberCloud.StartLocalWeb(self.data[idx].LocalUrl + "?backUrl=" + encodeURIComponent("http://172.16.188.26/web/flytvYun/pages/index/index.html"), "backUrl");
                             } else {
                                 window.location.href = link;
                             }
@@ -239,5 +239,5 @@
         }
     };
 
-    init();
+    adInit(init, 5);
 }(window, document);
