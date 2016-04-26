@@ -16,7 +16,7 @@
     height: 720px;
 }
 
-#ad-BootPage-timepiece {
+#ad-BootPage-timepiece-num {
     position: absolute;
     top: 60px;
     right: 60px;
@@ -29,4 +29,108 @@
     color: #EB6100;
     font-family: "Microsoft YaHei";
     border-radius: 50px;
+}
+
+.ad-BootPage-timepiece-ring {
+    border-radius: 1000px;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    height: 90px;
+    width: 90px;
+    float: left;
+}
+
+.ad-BootPage-timepiece-ring .num {
+    border-radius: 1000px;
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    line-height: 66px;
+    font-family: "Luci  da Sans Unicode", "Lucida Grande", sans-serif;
+    z-index: 20;
+    color: #FFFFFF;
+    font-size: 54px;
+    text-align: center;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.4);
+
+    /* CSS3 文字阴影 */
+    /*text-shadow: 4px 4px 5px #333333;*/
+}
+
+.ad-BootPage-timepiece-ring .bg, .ad-BootPage-timepiece-ring .front {
+    width: 45px;
+    height: 90px;
+    position: absolute;
+    top: 0;
+}
+
+.ad-BootPage-timepiece-ring .front.left {
+    border: 12px solid transparent;
+    border-left-color: #B5B5B5;
+    border-top-color: #B5B5B5;
+    border-radius: 66px;
+    transform: rotate(-45deg);
+    height: 66px;
+    width: 66px;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.ad-BootPage-timepiece-ring .front.right {
+    border: 12px solid transparent;
+    border-right-color: #B5B5B5;
+    border-bottom-color: #B5B5B5;
+    border-radius: 66px;
+    transform: rotate(-45deg);
+    height: 66px;
+    width: 66px;
+    left: 0;
+    top: 0;
+    z-index: 5;
+}
+
+.ad-BootPage-timepiece-ring .rotate {
+    /* 两个旋转的div，每个都分为左右两部分 */
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: 0;
+    left: 0;
+}
+
+.ad-BootPage-timepiece-ring .rotate.left {
+    z-index: 7;
+}
+
+.ad-BootPage-timepiece-ring .rotate.right {
+    display: none;
+    z-index: 11;
+}
+
+/* 左半边部分 */
+.ad-BootPage-timepiece-ring .bg.left {
+    width: 66px;
+    height: 66px;
+    border: 12px solid transparent;
+    border-left-color: #F36E5D;
+    border-top-color: #F36E5D;
+    border-radius: 66px;
+    transform: rotate(-45deg);
+    left: 0;
+}
+
+/* 右边部分 */
+.ad-BootPage-timepiece-ring .bg.right {
+    width: 66px;
+    height: 66px;
+    border: 12px solid transparent;
+    border-right-color: #F36E5D;
+    border-bottom-color: #F36E5D;
+    border-radius: 66px;
+    transform: rotate(-45deg);
+    left: 0;
 }

@@ -239,5 +239,8 @@
         }
     };
 
-    adInit(init, 5);
+    adInit({
+        hideTime: 5,
+        type: "ring"
+    }, init);
 }(window, document);
