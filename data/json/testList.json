@@ -10,6 +10,12 @@
       }
     },
     {
+      "name": "歌华生活圈-主页",
+      "link": {
+        "test": "http://10.191.255.161/flytvYun/pages/lifeCircle/index.html"
+      }
+    },
+    {
       "name": "电视街景地图",
       "link": {
         "test": "http://172.16.200.18:82/StreetView/pages/index/index.html",

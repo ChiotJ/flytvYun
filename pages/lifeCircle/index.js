@@ -13,6 +13,8 @@
         };
         pageBody.keyListener();
         sessionStorage.setItem("flytvYunFrom", window.location.href);
+
+        familyCard.init();
     };
 
     var pageBody = {
@@ -171,6 +173,9 @@
                 id: "appList",
                 columnNum: 3,
                 label: "li",
+                down: function () {
+                    $("#familyCardLogo").focus();
+                },
                 enter: function (item) {
                     var idx = $(item).index();
                     var link = self.data[idx].link;
@@ -238,5 +243,62 @@
         }
     };
 
-    init();
+
+    var familyCard = {
+        init: function () {
+            this.getQRCode();
+            this.keyListener();
+        },
+        getQRCode: function () {
+            $.ajax({
+                type: "GET",
+                url: "http://172.16.188.26/family/stb/deviceNoEscape?deviceNo=" + GHSMLib.cardId,
+                success: function (data) {
+                    if (data && data.success) {
+                        var escapeDeviceNo = data.result.encryStr;
+                        var downloadurl = "http://t.cn/RG8jxjR";
+                        var qrurl = "http://172.16.188.13/api/common/Image/qrCode.png?text="
+                            + downloadurl + "?stbid=" + escapeDeviceNo + "&size=150";
+
+                        $("#familyCardQRCode").attr("src", qrurl);
+
+                    }
+                }, error: function (err) {
+                    console.error(err);
+                }
+            });
+        },
+        keyListener: function () {
+            GHSMLib.keyCon.keyListener({
+                id: "familyCardLogo",
+                enter: function (item) {
+                    console.log("enter");
+                },
+                up: function (item) {
+                    $("#appList").find("li")[GHSMLib.keyCon.index["appList"]].focus();
+                },
+                esc: function () {
+                    if (typeof CyberCloud != "undefined") {
+                        CyberCloud.ExitApp();
+                    }
+                    return false;
+                },
+                back: function () {
+                    if (typeof CyberCloud != "undefined") {
+                        $("#appList").css("opacity", "0");
+                        $(".loding").css("opacity", "1");
+                        setTimeout(function () {
+                            CyberCloud.ExitApp();
+                        }, 1100);
+                    }
+                    return false;
+                }
+            });
+        }
+    };
+
+    adInit({
+        hideTime: 5,
+        type: "ring"
+    }, init);
 }(window, document);

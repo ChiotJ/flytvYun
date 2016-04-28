@@ -7,7 +7,35 @@
         pageBody.keyListener();
         lis();
         appList.getList();
+        timeoutReload();
     };
+
+    var timeoutReload = function () {
+        setTimeout(function () {
+            window.location.reload();
+        }, 20 * 60 * 1000);
+        var timeManage = function (time) {
+            var s = time % 60;
+            var S = s + "秒";
+            if (s < 10) {
+                S = "0" + S;
+            }
+            var m = (time - s) / 60;
+            var M = m % 60 + "分";
+            if (m < 10) {
+                M = "0" + M;
+            }
+            var h = (m - (m % 60)) / 60;
+            var H = h + "时";
+            return H + M + S;
+        };
+        var time = 0;
+        setInterval(function () {
+            time++;
+            $("#time").html(timeManage(time));
+        }, 1000);
+    };
+
 
     var lis = function () {
         if (typeof CyberCloud !== "undefined") {
