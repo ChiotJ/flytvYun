@@ -272,7 +272,8 @@
             GHSMLib.keyCon.keyListener({
                 id: "familyCardLogo",
                 enter: function (item) {
-                    console.log("enter");
+                    window.location.href = "http://172.16.188.26/web/family/pages/familyCard/index.html";
+                    return false;
                 },
                 up: function (item) {
                     $("#appList").find("li")[GHSMLib.keyCon.index["appList"]].focus();

@@ -113,7 +113,7 @@
         GHSMLib.keyCon.keyListener({
             id: "ad-BootPage",
             enter: function (item) {
-                console.log(123);
+                window.location.href = "http://172.16.188.26/web/family/pages/familyCard/index.html";
                 return false;
             },
             esc: function () {
