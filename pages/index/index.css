@@ -9,6 +9,7 @@ body {
     height: 720px;
     font-family: Microsoft YaHei;
     background: url("images/bg.png") 0 no-repeat;
+    overflow: hidden;
 }
 
 .pageBody {

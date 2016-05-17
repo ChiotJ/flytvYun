@@ -4,6 +4,33 @@
   "default": 4,
   "list": [
     {
+      "id": "6",
+      "name": "亲情一刻",
+      "online": true,
+      "link": "http://172.16.188.26/web/family/pages/index/index.html",
+      "new": true,
+      "alpha": false,
+      "beta": false
+    },
+    {
+      "id": "5",
+      "name": "电视街景地图",
+      "online": true,
+      "new": true,
+      "link": "http://172.16.188.26/web/StreetView/pages/index/index.html"
+    },
+    {
+      "id": "4",
+      "name": "朝外生活圈",
+      "online": true,
+      "new": true,
+      "link": "http://172.16.188.26/web/LifeCircle/chaowai/pages/index/index.html",
+      "area": [
+        "11e6801f-9a5d-4a6b-be6c-e6bc7820cc57"
+      ],
+      "next_default": 5
+    },
+    {
       "id": "1",
       "name": "歌华云飞视",
       "online": true,
@@ -25,33 +52,6 @@
       "new": false,
       "link": "CyberCloudWeb",
       "CyberCloudId": 77
-    },
-    {
-      "id": "4",
-      "name": "朝外生活圈",
-      "online": true,
-      "new": true,
-      "link": "http://172.16.188.26/web/LifeCircle/chaowai/pages/index/index.html",
-      "area": [
-        "11e6801f-9a5d-4a6b-be6c-e6bc7820cc57"
-      ],
-      "next_default": 5
-    },
-    {
-      "id": "5",
-      "name": "电视街景地图",
-      "online": true,
-      "new": true,
-      "link": "http://172.16.188.26/web/StreetView/pages/index/index.html"
-    },
-    {
-      "id": "6",
-      "name": "亲情一刻",
-      "online": true,
-      "new": false,
-      "link": "http://172.16.188.26/web/family/pages/index/index.html",
-      "alpha": false,
-      "beta": true
     }
   ]
 }

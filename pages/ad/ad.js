@@ -109,12 +109,11 @@
         f.ui();
     };
 
-    var keyListener = function () {
+    var keyListener = function (enter) {
         GHSMLib.keyCon.keyListener({
             id: "ad-BootPage",
             enter: function (item) {
-                window.location.href = "http://172.16.188.26/web/family/pages/familyCard/index.html";
-                return false;
+                return enter(item);
             },
             esc: function () {
                 return false;
@@ -124,10 +123,10 @@
             }
         });
     };
-    window.adInit = function (option, callback) {
+    window.adInit = function (option, callback, enter) {
         $("#ad-BootPage").attr("tabindex", "-1").focus();
 
-        keyListener();
+        keyListener(enter);
 
         var time = 5;
         if (option.time) {

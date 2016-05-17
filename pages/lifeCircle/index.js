@@ -128,7 +128,7 @@
                                     }
                                 }
                             }
-                            if (!show && GHSMLib.cardId != "1371053255") {
+                            if (!show) {
                                 if (self.default && list[key].next_default)
                                     self.default = list[key].next_default;
                                 list.splice(key, 1);
@@ -299,7 +299,10 @@
     };
 
     adInit({
-        hideTime: 5,
+        time: 5,
         type: "ring"
-    }, init);
+    }, init, function (item) {
+        window.location.href = "http://172.16.188.26/web/family/pages/familyCard/index.html";
+        return false;
+    });
 }(window, document);

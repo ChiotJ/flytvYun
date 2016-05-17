@@ -65,6 +65,12 @@
       "link": {
         "test": "http://10.191.255.121/RTCApp/view?u=c9643dbc91a643899a7e6b33d861f9c9"
       }
+    },
+    {
+      "name": "彩票",
+      "link": {
+        "test": "http://10.191.255.161/lottery/index.html"
+      }
     }
   ]
 }
