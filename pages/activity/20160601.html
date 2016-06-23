@@ -36,8 +36,14 @@
 
     });
 
-    var timestamp = new Date().getTime();
-    $.getJSON('http://172.16.188.26/web/userBehavior/pv.json?appName=Activity20160601&cardId=' + Cyber.GetCardID() + "&timestamp=" + timestamp);
+    $.getJSON('http://172.16.188.26/chaowai/box/getBoxByCardId?cardId=' + Cyber.GetCardID(), function (data) {
+        if (data && data.success) {
+            data = data.result;
+            var timestamp = new Date().getTime();
+            $.getJSON('http://172.16.188.26/web/userBehavior/pv.json?appName=Activity20160601&cardId=' + Cyber.GetCardID() + "&timestamp=" + timestamp + "&phone=" + data.phone + "&name=" + data.name);
+        }
+    });
+
 </script>
 </body>
 </html>
