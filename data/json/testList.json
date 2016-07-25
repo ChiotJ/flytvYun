@@ -6,7 +6,7 @@
       "name": "歌华云应用",
       "link": {
         "test": "http://10.191.255.161/flytvYun/pages/index/index.html",
-        "publish": "http://172.16.188.26/web/flytvYun/pages/index/index.html"
+        "publish": "http://172.16.188.26/web/flytvYun/pages/index/index.html?test"
       }
     },
     {
@@ -27,6 +27,12 @@
       "link": {
         "test": "http://172.16.200.18:82/life_circle/chaowai/pages/index/index.html",
         "publish": "http://172.16.188.26/web/LifeCircle/chaowai/pages/index/index.html"
+      }
+    },
+    {
+      "name": "八角生活圈",
+      "link": {
+        "test": "http://10.191.255.121/web/bajiao/app/index/index.html"
       }
     },
     {
@@ -69,7 +75,13 @@
     {
       "name": "彩票",
       "link": {
-        "test": "http://10.191.255.121/lottery/index.html"
+        "test": "http://10.191.255.121/web/lottery/index.html"
+      }
+    },
+    {
+      "name": "绘本",
+      "link": {
+        "test": "http://10.191.255.121/web/picture/index.html#/picture/"
       }
     }
   ]

@@ -4,7 +4,6 @@
 !function (window, document) {
     var init = function () {
         $("#pageBody").focus();
-        pageBody.keyListener();
         lis();
         appList.getList();
         timeoutReload();
@@ -55,7 +54,19 @@
         if (typeof CyberCloud !== "undefined") {
             document.getElementById("ca").innerHTML = CyberCloud.GetParam("CardID").ParamValue;
             document.getElementById("stb").innerHTML = CyberCloud.GetParam("UserCode").ParamValue;
+            document.getElementById("group").innerHTML = CyberCloud.GetParam("ServiceGroupID").ParamValue;
             document.getElementById("ip").innerHTML = CyberCloud.GetParam("TerminalIP").ParamValue;
+
+            // document.getElementById("isFirstTime").innerHTML = CyberCloud.GetParam("isFirstTime").ParamValue;
+            // document.getElementById("VodRegionAddr").innerHTML = CyberCloud.GetParam("VodRegionAddr").ParamValue;
+            // document.getElementById("MiscRevision").innerHTML = CyberCloud.GetParam("MiscRevision").ParamValue;
+            // document.getElementById("SoftwareLoaderVersion").innerHTML = CyberCloud.GetParam("SoftwareLoaderVersion").ParamValue;
+
+            // document.getElementById("STBhVersion").innerHTML = CyberCloud.GetParam("STBhVersion").ParamValue;
+            // document.getElementById("STBsVersion").innerHTML = CyberCloud.GetParam("STBsVersion").ParamValue;
+
+
+            document.getElementById("error").innerHTML = CyberCloud.GetParam("CardID").Description;
         }
         document.getElementById("search").innerHTML = window.location.href;
         document.onkeydown = function (e) {
@@ -66,21 +77,17 @@
         }
     };
 
-    var pageBody = {
-        keyListener: function () {
-            GHSMLib.keyCon.keyListener({
-                id: "pageBody",
-                esc: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        CyberCloud.ExitApp();
-                    }
-                    return false;
-                },
-                back: function () {
-                    return false;
-                }
-            });
-        }
+    var exit = function () {
+        //CyberCloud.ExitApp();
+        var AppStartParam = {
+            "AppID": 30003002,
+            "AppParam": "http://172.16.188.26/web/flytvYun/pages/index/index.html"
+        };
+        var AppBackParam = {
+            "AppID": 30003002,
+            "AppParam": "http://172.16.188.26/web/flytvYun/pages/test/index.html"
+        };
+        CyberCloud.StartStreamAppEx(AppStartParam, AppBackParam);
     };
 
     var appList = {
@@ -149,12 +156,8 @@
 
                     }
                 },
-                esc: function () {
-                    self.exit();
-                    return false;
-                },
                 back: function () {
-                    return false;
+                    exit();
                 }
             });
             GHSMLib.keyCon.listKeyListener({
@@ -176,21 +179,10 @@
                         }
                     }
                 },
-                esc: function () {
-                    self.exit();
-                    return false;
-                },
                 back: function () {
-                    return false;
+                    exit();
                 }
             });
-        },
-        exit: function () {
-            if ($("#key").html() == "27") {
-                if (typeof CyberCloud != "undefined") {
-                    CyberCloud.ExitApp();
-                }
-            }
         }
     };
 

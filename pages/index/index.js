@@ -138,17 +138,17 @@
                     }
                     self.data = showList;
                     self.ul.html(self.dot(showList));
-                    self.getDefault(list)
+                    self.getDefault(list, showList);
+                    self.keyListener();
                     $("#appList").css("opacity", "1");
                     $(".loding").css("opacity", "0");
 
+                    GHSMLib.keyCon.focus("appList", self.default);
 
-                    self.keyListener();
-                    $("#menu_" + self.default).focus();
                 }
             })
         },
-        getDefault: function (list) {
+        getDefault: function (list, showList) {
             var self = this;
             for (var key in list) {
                 var id = list[key].id;
@@ -156,9 +156,16 @@
                     if (!list[key].online || !list[key].show) {
                         if (list[key].next_default) {
                             self.default = list[key].next_default;
-                            self.getDefault(list);
+                            self.getDefault(list, showList);
                         } else {
                             self.default = 1;
+                        }
+                    } else {
+                        for (var i = 0; i < showList.length; i++) {
+                            if (self.default == showList[i].id) {
+                                self.default = i;
+                                break;
+                            }
                         }
                     }
                     break;
@@ -225,7 +232,7 @@
                     }
                     self.keyDown += e.keyCode;
                     if (self.keyDown.indexOf("555354555657") != "-1") {
-                        window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html";
+                        window.location.href = "http://172.16.188.26/web/flytvYun/pages/test/index.html" + window.location.search;
                     } else if (self.keyDown.indexOf("4953575451") != "-1") {
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/statistical/index.html";
                     } else if (self.keyDown.indexOf("495051505152") != "-1") {
