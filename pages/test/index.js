@@ -10,10 +10,24 @@
         timeoutReload();
     };
 
+    GHSMLib.getUserInfo(function (data, err) {
+        if (typeof err !== "undefined") {
+            console.log(err);
+        } else {
+            console.log(data);
+
+            $("#name").html(data.name);
+            $("#phone").html(data.phone);
+            if (data.streetName)
+                $("#street").html(data.streetName);
+            if (typeof data.community === "object") {
+                $("#community").html(data.community.name);
+            }
+        }
+
+    });
+
     var timeoutReload = function () {
-        setTimeout(function () {
-            window.location.reload();
-        }, 20 * 60 * 1000);
         var timeManage = function (time) {
             var s = time % 60;
             var S = s + "秒";
@@ -128,9 +142,11 @@
                         var idx = $(item).index();
                         if (idx > self.testList.length - 6) {
                             if (self.publishList.length > 0) {
-                                $($("#publishList").find("li")[0]).focus();
+                                GHSMLib.keyCon.focus("publishList");
+                                return false;
                             }
                         }
+
                     }
                 },
                 esc: function () {
@@ -154,7 +170,8 @@
                         var idx = $(item).index();
                         if (idx < 5) {
                             if (self.testList.length > 0) {
-                                $($("#testList").find("li")[0]).focus();
+                                GHSMLib.keyCon.focus("testList");
+                                return false;
                             }
                         }
                     }

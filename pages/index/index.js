@@ -100,7 +100,7 @@
         data: null,
         dot: doT.template($('#appListDot').text()),
         ul: $("#appList"),
-        default: 0,
+        default: 1,
         keyDown: "",
         init: function (user) {
             this.getDate(user);
@@ -112,8 +112,7 @@
                     if (json.default) {
                         self.default = json.default;
                     }
-                    var list = json.list;
-                    var idx = 0;
+                    var list = json.list, showList = [];
                     for (var key in list) {
                         var area = list[key].area;
                         if (area) {
@@ -127,43 +126,44 @@
                                 }
                             }
                             if (!show) {
-                                if (self.default && list[key].next_default)
-                                    self.default = list[key].next_default;
-                                list.splice(key, 1);
+                                list[key].show = false;
+                            } else {
+                                list[key].show = true;
+                                showList.push(list[key])
                             }
+                        } else {
+                            list[key].show = true;
+                            showList.push(list[key])
                         }
                     }
-                    self.data = list;
-                    self.ul.html(self.dot(list));
-                    if (self.default) {
-                        idx = self.getDefault(list)
-                    }
+                    self.data = showList;
+                    self.ul.html(self.dot(showList));
+                    self.getDefault(list)
                     $("#appList").css("opacity", "1");
                     $(".loding").css("opacity", "0");
 
 
-                    $(self.ul.find("li")[idx]).focus();
                     self.keyListener();
+                    $("#menu_" + self.default).focus();
                 }
             })
         },
         getDefault: function (list) {
             var self = this;
-            var idx = 0;
             for (var key in list) {
                 var id = list[key].id;
                 if (id == self.default) {
-                    idx = key;
-                    if (!list[key].online) {
+                    if (!list[key].online || !list[key].show) {
                         if (list[key].next_default) {
                             self.default = list[key].next_default;
-                            idx = self.getDefault(list);
+                            self.getDefault(list);
+                        } else {
+                            self.default = 1;
                         }
                     }
                     break;
                 }
             }
-            return idx;
         },
         keyListener: function () {
             var self = this;
