@@ -19,13 +19,8 @@
         keyListener: function () {
             GHSMLib.keyCon.keyListener({
                 id: "pageBody",
-                esc: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        CyberCloud.ExitApp();
-                    }
-                    return false;
-                },
                 back: function () {
+                    GHSMLib.ExitApp();
                     return false;
                 }
             });
@@ -203,24 +198,12 @@
 
                     }
                 },
-                esc: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        CyberCloud.ExitApp();
-                    }
-                    return false;
-                },
                 back: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        $("#appList").css("opacity", "0");
-                        $(".loding").css("opacity", "1");
-                        setTimeout(function () {
-                            //歌华主页-正式
-                            //CyberCloud.StartStreamWeb("43", "", "");
-                            //歌华主页-预发布
-                            //CyberCloud.StartStreamWeb("62", "", "");
-                            CyberCloud.ExitApp();
-                        }, 1100);
-                    }
+                    $("#appList").css("opacity", "0");
+                    $(".loding").css("opacity", "1");
+                    setTimeout(function () {
+                        GHSMLib.ExitApp();
+                    }, 1100);
                     return false;
                 }
             });
@@ -238,9 +221,6 @@
                     } else if (self.keyDown.indexOf("495051505152") != "-1") {
                         window.location.href = "http://172.16.200.18:82/SafeDaXing/pages/index/index.html";
                     }
-                }
-                if (e && e.keyCode == 27) {
-                    return false;
                 }
             }
         }

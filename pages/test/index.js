@@ -69,11 +69,8 @@
             document.getElementById("error").innerHTML = CyberCloud.GetParam("CardID").Description;
         }
         document.getElementById("search").innerHTML = window.location.href;
-        document.onkeydown = function (e) {
+        document.getElementById("pageBody").onkeydown = function (e) {
             document.getElementById("key").innerHTML = e.keyCode;
-            if (e && e.keyCode == 8) {
-                return false;
-            }
         }
     };
 
@@ -88,6 +85,8 @@
             "AppParam": "http://172.16.188.26/web/flytvYun/pages/test/index.html"
         };
         CyberCloud.StartStreamAppEx(AppStartParam, AppBackParam);
+        //CyberCloud.ExitCloud();
+        return false;
     };
 
     var appList = {

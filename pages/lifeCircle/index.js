@@ -21,13 +21,8 @@
         keyListener: function () {
             GHSMLib.keyCon.keyListener({
                 id: "pageBody",
-                esc: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        CyberCloud.ExitApp();
-                    }
-                    return false;
-                },
                 back: function () {
+                    GHSMLib.ExitApp();
                     return false;
                 }
             });
@@ -201,22 +196,12 @@
 
                     }
                 },
-                esc: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        CyberCloud.ExitApp();
-                    }
-                    return false;
-                },
                 back: function () {
                     if (typeof CyberCloud != "undefined") {
                         $("#appList").css("opacity", "0");
                         $(".loding").css("opacity", "1");
                         setTimeout(function () {
-                            //歌华主页-正式
-                            //CyberCloud.StartStreamWeb("43", "", "");
-                            //歌华主页-预发布
-                            //CyberCloud.StartStreamWeb("62", "", "");
-                            CyberCloud.ExitApp();
+                            GHSMLib.ExitApp();
                         }, 1100);
                     }
                     return false;
@@ -235,9 +220,6 @@
                         window.location.href = "http://172.16.188.26/web/flytvYun/pages/statistical/index.html";
                     }
 
-                }
-                if (e && e.keyCode == 27) {
-                    return false;
                 }
             }
         }
@@ -278,18 +260,12 @@
                 up: function (item) {
                     $("#appList").find("li")[GHSMLib.keyCon.index["appList"]].focus();
                 },
-                esc: function () {
-                    if (typeof CyberCloud != "undefined") {
-                        CyberCloud.ExitApp();
-                    }
-                    return false;
-                },
                 back: function () {
                     if (typeof CyberCloud != "undefined") {
                         $("#appList").css("opacity", "0");
                         $(".loding").css("opacity", "1");
                         setTimeout(function () {
-                            CyberCloud.ExitApp();
+                            GHSMLib.ExitApp();
                         }, 1100);
                     }
                     return false;
