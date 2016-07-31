@@ -184,13 +184,30 @@
                         $(".loding").css("opacity", "1");
                         setTimeout(function () {
                             if (link == "CyberCloudWeb") {
-                                CyberCloud.StartStreamWeb(self.data[idx].CyberCloudId, "", "")
+                                var AppStartParam = {
+                                    "AppID": self.data[idx].CyberCloudId,
+                                    "AppParam": self.data[idx].CyberCloudUrl
+                                };
+                                var AppBackParam = {
+                                    "AppID": 30003002,
+                                    "AppParam": "http://172.16.188.26/web/flytvYun/pages/index/index.html"
+                                };
+                                CyberCloud.StartStreamAppEx(AppStartParam, AppBackParam);
                             } else if (link == "LocalWeb") {
                                 if (self.data[idx].name == "歌华云飞视") {
                                     var timestamp = new Date().getTime();
                                     $.getJSON('http://172.16.188.26/web/userBehavior/pv.json?appName=Flytv&cardId=' + GHSMLib.cardId + "&timestamp=" + timestamp);
                                 }
-                                CyberCloud.StartLocalWeb(self.data[idx].LocalUrl + "?backUrl=" + encodeURIComponent("http://172.16.188.26/web/flytvYun/pages/index/index.html"), "backUrl");
+
+                                var BackKey = "backurl";
+                                var AppBackParam = {
+                                    "AppID": 30003002,
+                                    "AppParam": "http://172.16.188.26/web/flytvYun/pages/index/index.html"
+                                };
+                                var AppStartParam = {
+                                    "AppParam": self.data[idx].LocalUrl
+                                };
+                                CyberCloud.StartLocalAppEx(AppStartParam, AppBackParam, BackKey);
                             } else {
                                 window.location.href = link;
                             }
