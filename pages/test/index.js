@@ -69,6 +69,8 @@
             document.getElementById("error").innerHTML = CyberCloud.GetParam("CardID").Description;
         }
         document.getElementById("search").innerHTML = window.location.href;
+
+        document.getElementById("libVer").innerHTML = GHSMLib.version;
         document.getElementById("pageBody").onkeydown = function (e) {
             document.getElementById("key").innerHTML = e.keyCode;
         }
@@ -179,6 +181,7 @@
                     }
                 },
                 back: function () {
+                    $("#error").html("进入");
                     exit();
                 }
             });
